@@ -3,33 +3,31 @@
     el: "#pet-app",
 
     initialize: function(args) {
-      this.petHouse = new app.collections.pets
+      this.petHouse = new app.collections.pets(); // Create a collection of pets
 
       addPetView = _.bind(function(pet) {
         var petView = new app.views.pet({
           model: pet
         })
         this.$el.append(petView.render().el)
-      }, this)
+      }, this);
+
+      this.petHouse.on("add remove reset", function(pet) {
+        $(".pet-count").html(this.petHouse.size())
+      }, this); // When we add or remove pets, update the count
 
       this.petHouse.on("add", function(pet) {
         addPetView(pet)
-        $(".pet-count").html(this.petHouse.size())
-      }, this);
-
-      this.petHouse.on("remove", function(pet) {
-        $(".pet-count").html(this.petHouse.size())
-      }, this);
+      }, this); // When we add a pet, create the view
 
       this.petHouse.on("reset", function(pet) {
-        $(".pet-count").html(this.petHouse.size())
         this.petHouse.each(function(pet) {
           addPetView(pet)
         })
       }, this);
 
-      $(".btn-adopt").click(_.bind(this.onAdoptPet, this))
-      this.petHouse.fetch()
+      $(".btn-adopt").click(_.bind(this.onAdoptPet, this)); // When the user presses the adopt button, adopt a pet
+      this.petHouse.fetch(); // Get the users pets from the database
     },
 
     randomName: function(len, charSet) {

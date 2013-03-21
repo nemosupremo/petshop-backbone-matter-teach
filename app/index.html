@@ -10,10 +10,6 @@
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
 
     <style type="text/css">
-
-      .pet {
-
-      }
       .top-header {
         background-color: #555;
         padding: 15px 0;
@@ -70,19 +66,19 @@
         });
       }).call(this);
     </script>
-    <script id="pet-template" type="text/x-handlebars-template">
-      <div class="pet span3">
-        <img alt="" src="img/{{image}}" />
-        <h4>{{name}}</h4>
-        <input type="text" value="{{name}}" class="pet-name">
-        <ul class="unstyled">
-          <li>Health : <strong class="{{petHealth}}">{{health}}/{{max_health}}</strong></li>
-        </ul>
-        <button class="btn btn-primary btn-info btn-block btn-feed">Feed</button>
-        <button class="btn btn-primary btn-danger btn-block btn-abuse">Abuse</button>
-        <button class="btn btn-primary btn-inverse btn-block btn-pound">Pound</button>
-      </div>
-    </script>
+<script id="pet-template" type="text/x-handlebars-template">
+  <div class="pet span3">
+    <img alt="" src="img/{{image}}" />
+    <h4>{{name}}</h4>
+    <input type="text" value="{{name}}" class="pet-name">
+    <ul class="unstyled">
+      <li>Health : <strong class="{{petHealth}}">{{health}}/{{max_health}}</strong></li>
+    </ul>
+    <button class="btn btn-primary btn-info btn-block btn-feed">Feed</button>
+    <button class="btn btn-primary btn-danger btn-block btn-abuse">Abuse</button>
+    <button class="btn btn-primary btn-inverse btn-block btn-pound">Pound</button>
+  </div>
+</script>
     <script type="text/javascript">
       window.app = {
         "models":{},

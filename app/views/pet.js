@@ -9,18 +9,18 @@
 
     initialize: function(args) {
       var source = $("#pet-template").html();
-      this.template = Handlebars.compile(source);
+      this.template = Handlebars.compile(source); // get our template
 
-      this.model.on("change", this.render, this)
+      this.model.on("change", this.render, this) // when the pet changes, redraw the html
       this.model.on("destroy", function() {
         this.remove()
-      }, this);
+      }, this); // when the pet is deleted, delete the html
     },
 
     renamePet: function(event) {
       newName = $(event.currentTarget).val()
       if (newName != "") {
-        this.model.set("name", newName)
+        this.model.set("name", newName) // set the name
       }
     },
 

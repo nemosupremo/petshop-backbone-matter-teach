@@ -1,10 +1,12 @@
 # Backbone Example - PetShop
 
 ## Overview
-This example was created for Matter.vc's <http://matter.vc> Teach Us exercise.
+This example was created for Matter.vc's (<http://matter.vc>) Teach Us exercise.
 
-The slides, which go through the example are available in presentation/index.html, and are available for viewing at
-<http://nemothekid.github.com/petshop-backbone-matter-teach/presentation>
+The slides, which go through the example, are available in slides/index.html, and are available for viewing at
+<http://nemothekid.github.com/petshop-backbone-matter-teach/slides>
+
+Slides built with deck.js <http://imakewebthings.com/deck.js/>
 
 ## Running the Example
 The example is pure Javascript, so it should work hosted on any server. `app/serve.sh.py` contains the code `python -m SimpleHTTPServer` which will start a simple file server on port 8000. Just visit <http://localhost:8000> to see the example in action.
