@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Matter Teach</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
+
+    <style type="text/css">
+
+      .pet {
+
+      }
+      .top-header {
+        background-color: #555;
+        padding: 15px 0;
+        margin-bottom: 8px;
+        box-shadow: inset 0 -3px 5px #444;
+      }
+      .top-header h1 {
+        color: #EEEEEE;
+        display: inline-block;
+      }
+    </style>
+
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="top-header row-fluid">
+      <div class="span8 offset2">
+        <h1>Pet Store</h1>
+        <button class="btn btn-primary btn-large btn-adopt pull-right">Adopt</button>
+      </div>
+    </div>
+    <div class="container">
+      <h2>Your Pets (<span class="pet-count">0</span>)</h2>
+      <div id="pet-app" class="row">
+
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    <!--
+      Usually, I have tool such as sprockets for rails that will minify the js, as well as combine into one file
+    -->
+    <script src="lib/underscore.js"></script>
+    <script src="lib/handlebars.js"></script>
+    <script src="lib/backbone.js"></script>
+    <script src="lib/backbone.localStorage.js"></script>
+
+    <!--
+      Templating code
+    -->
+    <script type="text/javascript">
+      (function() {
+        Handlebars.registerHelper('petHealth', function() {
+          if (this.health/this.max_health <= .3) {
+            return "text-error"
+          } else if (this.health/this.max_health <= .6) {
+            return "text-warning"
+          } else {
+            return "text-success"
+          }
+        });
+      }).call(this);
+    </script>
+    <script id="pet-template" type="text/x-handlebars-template">
+      <div class="pet span3">
+        <img alt="" src="img/{{image}}" />
+        <h4>{{name}}</h4>
+        <input type="text" value="{{name}}" class="pet-name">
+        <ul class="unstyled">
+          <li>Health : <strong class="{{petHealth}}">{{health}}/{{max_health}}</strong></li>
+        </ul>
+        <button class="btn btn-primary btn-info btn-block btn-feed">Feed</button>
+        <button class="btn btn-primary btn-danger btn-block btn-abuse">Abuse</button>
+        <button class="btn btn-primary btn-inverse btn-block btn-pound">Pound</button>
+      </div>
+    </script>
+    <script type="text/javascript">
+      window.app = {
+        "models":{},
+        "views":{},
+        "collections":{},
+        "templates":{},
+      };
+    </script>
+    <script src="models/pet.js"></script>
+    <script src="collections/pet.js"></script>
+    <script src="views/pet.js"></script>
+    <script src="app.js"></script>
+
+    <script type="text/javascript">
+      (function() {
+        var app = new window.app.views.app();
+        app.render()
+      }).call(this);
+    </script>
+  </body>
+</html>
