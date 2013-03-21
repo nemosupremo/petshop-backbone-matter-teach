@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Backbone Presentation</title>
+
+	<!-- Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700' rel='stylesheet' type='text/css'>
+
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<!-- <link rel="stylesheet" href="themes/style/web-2.0.css"> -->
+	<link rel="stylesheet" href="themes/style/sandstone.default.css">
+
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+
+	<style type="text/css">
+		.crud-code {
+			font-size:small;
+		}
+	</style>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+
+<section class="slide">
+	<h1>BackboneJS QuickStart</h1>
+</section>
+
+<section class="slide">
+	<h2>BackboneJS</h2>
+	<ul>
+		<li>
+			<h3>What is it?</h3>
+			<ul>
+				<li>A no-assumptions javascript framework for creating web apps, written and used by <a href="http://www.documentcloud.com" target="_blank">DocumentCloud</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Why?</h3>
+			<ul>
+				<li>"It's all too easy to create JavaScript applications that end up as tangled piles of jQuery selectors and callbacks, all trying frantically to keep data in sync between the HTML UI, your JavaScript logic, and the database on your server. For rich client-side applications, a more structured approach is often helpful." - DocumentCloud</li>
+				<li>All about creating rich JavaScript applications that don't turn into unmanageable messes.</li>
+			</ul>
+		</li>
+		<li>
+			<h3>Who uses it?</h3>
+			<ul>
+				<li>AirBnb</li>
+				<li>Stripe</li>
+				<li>Rdio</li>
+				<li>Hulu</li>
+				<li>ChannelMeter</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>BackboneJS</h2>
+	<ul>
+		<li>
+			<h3>But BackboneJS is Old &amp; Busted! Use...</h3>
+			<ul>
+				<li><a href="http://angularjs.org/" target="_blank">AngularJS</a></li>
+				<li><a href="http://emberjs.com/" target="_blank">Ember.js</a></li>
+				<li><a href="http://knockoutjs.com/" target="_blank">KnockoutJs</a></li>
+			</ul>
+		</li>
+		<li>
+			<h3>Great Tools! But get familiar with one.</h3>
+			<ul>
+				<li>The HackerNews crowd loves to hail every new technology as the next coming of Christ.</li>
+				<li>They aren't that much better than each other</li>
+				<li>Shitty at 10, instead of good at 1</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Road to Web Apps</h2>
+	<ul>
+		<li>
+			<h3>Raw DOM</h3>
+			<ul>
+				<li>Writing seperate code for every browser.</li>
+				<li>Writing code for Internet Explorer</li>
+				<li>Like walking on hot coals</li>
+			</ul>
+		</li>
+		<li>
+			<h3>jQuery</h3>
+			<ul>
+				<li>Makes DOM Manpulation a lot easier</li>
+				<li>Provides many cross-browser functions</li>
+				<li>Near ubiqutious, might as well be the JS stdlib.</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Road to Web Apps</h2>
+	<ul>
+		<li>
+			<h3>But...</h3>
+			<ul>
+				<li>jQuery is just a library of functions.</li>
+				<li>Without any structure large web apps become large lists of functions.</li>
+				<li>Code is mixed with Data, and Data is mixed with HTML and its just a mess</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>BackboneJS</h2>
+	<ul>
+		<li>
+			<h3>Provides Structure</h3>
+			<ul>
+				<li>
+					<h4>No Assumptions</h4>
+					<ul>
+						<li>Doesn't force you into Model-View-Controller, Model-View-ViewModel, Model-View-Presenter.</li>
+						<li>Doesn't force you to use certain libraries</li>
+					</ul>
+				</li>
+				<li>
+					<h4>Simple Abstractions</h4>
+					<ul>
+						<li>Most WebApps have Data and Views</li>
+						<li>Provides functions for doing common tasks, like saving</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>REST Model (CRUD)</h2>
+	<ul>
+		<li><h3>CRUD</h3>
+			<ul>
+				<li>Create, Read, Update, Destroy</li>
+				<li>How Backbone, by default, will interact with data</li>
+				<li>Ex. to create an object, Backbone will POST json data to yoursite.com/data</li>
+				<li>To update, Backbone will PUT json data to yoursite.com/data/id</li>
+				<li>Tutorial <a href="http://www.restapitutorial.com/" target="_blank">http://www.restapitutorial.com/</a>
+			</ul>
+		</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Getting Started</h2>
+	<ul><li><h3>Pet Store</h3></li>
+		<li>Adopt A Pet</li>
+		<li>Name him, feed him, hurt him.</li>
+		<li>Pound him when we're done.</li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Getting Started</h2>
+	<h3>Required Libraries</h3>
+	<pre><code class="prettyprint">
+&lt;!DOCTYPE html&gt;<br/>&lt;html&gt;<br/>  &lt;head&gt;<br/>    ...<br/>  &lt;/head&gt;<br/>  &lt;body&gt;<br/>    &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js&quot;&gt;&lt;/script&gt;<br/>    &lt;script src=&quot;lib/underscore.js&quot;&gt;&lt;/script&gt;<br/>    &lt;script src=&quot;lib/backbone.js&quot;&gt;&lt;/script&gt;<br/>  &lt;/body&gt;<br/>&lt;/html&gt;
+	</code></pre>
+</section>
+
+<section class="slide">
+	<h2>Getting Started</h2>
+	<ul><li><h3>Required Libraries</h3></li>
+		<li><a href="http://jquery.org">jQuery</a></li>
+		<li><a href="http://underscorejs.org">UnderscoreJs</a></li>
+		<li><a href="http://backbonejs.org">Backbone</a></li>
+	</ul>
+	<ul><li><h3>Extra Libraries for Example</h3></li>
+		<li><a href="http://getbootstrap.com">Bootstrap</a></li>
+		<li><a href="https://github.com/jeromegn/Backbone.localStorage">Backbone Local Storage</a></li>
+		<li><a href="http://handlebarsjs.com">HandleBars</a></li>
+	</ul>
+</section>
+
+<section class="slide">
+	<h2>Getting Started</h2>
+	<h3>Required Libraries</h3>
+	<pre><code class="prettyprint">
+&lt;!DOCTYPE html&gt;<br/>&lt;html&gt;<br/>  &lt;head&gt;<br/>    &lt;title&gt;Matter Teach&lt;/title&gt;<br/>    &lt;!-- NOT A CSS TUTORIAL --&gt;<br/>  &lt;/head&gt;<br/>  &lt;body&gt;<br/>    &lt;div class=&quot;top-header row-fluid&quot;&gt;<br/>      &lt;div class=&quot;span8 offset2&quot;&gt;<br/>        &lt;h1&gt;Pet Store&lt;/h1&gt;<br/>        &lt;button class=&quot;btn btn-primary btn-large btn-adopt pull-right&quot;&gt;Adopt&lt;/button&gt;<br/>      &lt;/div&gt;<br/>    &lt;/div&gt;<br/><br/>    &lt;div class=&quot;container&quot;&gt;<br/>      &lt;h2&gt;Your Pets (&lt;span class=&quot;pet-count&quot;&gt;0&lt;/span&gt;)&lt;/h2&gt;<br/>      &lt;div id=&quot;pet-app&quot; class=&quot;row&quot;&gt;<br/><br/>      &lt;/div&gt;<br/>    &lt;/div&gt;<br/><br/>    &lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js&quot;&gt;&lt;/script&gt;<br/>    &lt;script src=&quot;//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;<br/>    &lt;script src=&quot;lib/underscore.js&quot;&gt;&lt;/script&gt;<br/>    &lt;script src=&quot;lib/handlebars.js&quot;&gt;&lt;/script&gt;<br/>    &lt;script src=&quot;lib/backbone.js&quot;&gt;&lt;/script&gt;<br/>    &lt;script src=&quot;lib/backbone.localStorage.js&quot;&gt;&lt;/script&gt;<br/>  &lt;/body&gt;<br/>&lt;/html&gt;	</code></pre>
+</section>
+
+
+<section class="slide">
+	<h2>Pet Model</h2>
+	<ul><li><h3>What is a Pet?</h3></li>
+		<li>He has a name.</li>
+		<li>He has a picture.</li>
+		<li>He's healthy.</li>
+	</ul>
+	<h3>models/pet.js</h3>
+	<pre><code class="prettyprint">
+(function() {<br/>   window.app.models.pet = Backbone.Model.extend({<br/>    defaults: function() {<br/>      return {<br/>        image: &quot;pet.png&quot;,<br/>        max_health: 10,<br/>        health: 10,<br/>      };<br/>    },<br/>    initialize: function() {<br/>      this.on(&quot;change&quot;, _.throttle(function() {this.save()}, 250), this);<br/>    },<br/>   })<br/>}).call(this);
+	</code></pre>
+</section>
+
+<section class="slide">
+	<h2>Pet View</h2>
+	<ul><li><h3>How is a Pet represented?</h3></li>
+		<li>HTML</li>
+	</ul>
+	<h3>HandleBar Template</h3>
+	<pre><code class="prettyprint">
+&lt;script id=&quot;pet-template&quot; type=&quot;text/x-handlebars-template&quot;&gt;<br/>  &lt;div class=&quot;pet span3&quot;&gt;<br/>    &lt;img alt=&quot;&quot; src=&quot;img/{{image}}&quot; /&gt;<br/>    &lt;h4&gt;{{name}}&lt;/h4&gt;<br/>    &lt;input type=&quot;text&quot; value=&quot;{{name}}&quot; class=&quot;pet-name&quot;&gt;<br/>    &lt;ul class=&quot;unstyled&quot;&gt;<br/>      &lt;li&gt;Health : &lt;strong class=&quot;{{petHealth}}&quot;&gt;{{health}}/{{max_health}}&lt;/strong&gt;&lt;/li&gt;<br/>    &lt;/ul&gt;<br/>    &lt;button class=&quot;btn btn-primary btn-info btn-block btn-feed&quot;&gt;Feed&lt;/button&gt;<br/>    &lt;button class=&quot;btn btn-primary btn-danger btn-block btn-abuse&quot;&gt;Abuse&lt;/button&gt;<br/>    &lt;button class=&quot;btn btn-primary btn-inverse btn-block btn-pound&quot;&gt;Pound&lt;/button&gt;<br/>  &lt;/div&gt;<br/>&lt;/script&gt;</code></pre>
+</section>
+
+<section class="slide">
+	<h2>Pet View</h2>
+	<ul><li><h3>How will the user interact with the Pet?</h3></li>
+		<li>Events</li>
+	</ul>
+	<h3>views/pet.js</h3>
+	<pre><code class="prettyprint">
+(function() {<br/>  window.app.views.pet = Backbone.View.extend({<br/>    events: {<br/>      &quot;change .pet-name&quot;: &quot;renamePet&quot;,<br/>      &quot;click .btn-feed&quot; : &quot;feedPet&quot;,<br/>      &quot;click .btn-abuse&quot;: &quot;abusePet&quot;,<br/>      &quot;click .btn-pound&quot;: &quot;poundPet&quot;,<br/>    },<br/><br/>    initialize: function(args) {<br/>      var source = $(&quot;#pet-template&quot;).html();<br/>      this.template = Handlebars.compile(source);<br/><br/>      this.model.on(&quot;change&quot;, this.render, this)<br/>      this.model.on(&quot;destroy&quot;, function() {<br/>        this.remove()<br/>      }, this);<br/>    },<br/><br/>    renamePet: function(event) {<br/>      newName = $(event.currentTarget).val()<br/>      if (newName != &quot;&quot;) {<br/>        this.model.set(&quot;name&quot;, newName)<br/>      }<br/>    },<br/><br/>    feedPet: function(event) {<br/>      this.model.set(&quot;health&quot;, Math.min(this.model.get(&quot;health&quot;)+1, this.model.get(&quot;max_health&quot;)));<br/>      // this.model.save()<br/>    },<br/><br/>    abusePet: function(event) {<br/>      this.model.set(&quot;health&quot;, Math.max(this.model.get(&quot;health&quot;)-1, 0));<br/>    },<br/><br/>    poundPet: function(event) {<br/>      this.model.destroy();<br/>    },<br/><br/>    render: function() {<br/>      this.$el.html(this.template(this.model.toJSON()));<br/>      return this<br/>    },<br/>  })<br/>}).call(this);</code></pre>
+</section>
+
+
+<section class="slide">
+	<h2>Pet Collection</h2>
+	<ul><li><h3>Where are these Pets stored?</h3></li>
+		<li>In a Table, Parent's House</li>
+	</ul>
+	<h3>collections/pet.js</h3>
+	<pre><code class="prettyprint">
+(function() {<br/> window.app.collections.pets = Backbone.Collection.extend({<br/>    localStorage: new Backbone.LocalStorage(&quot;matter-backbone-teach-pets&quot;),<br/>    model: window.app.models.pet,<br/>    //urlRoot: '/api/pets'<br/> })<br/>}).call(this);</code></pre>
+</section>
+
+
+<section class="slide">
+	<h2>Putting it all Together</h2>
+	<h3>app.js</h3>
+	<pre><code class="prettyprint">
+(function() {<br/>  app.views.app = Backbone.View.extend({<br/>    el: &quot;#pet-app&quot;,<br/><br/>    initialize: function(args) {<br/>      this.petHouse = new app.collections.pets(); // Create a collection of pets<br/><br/>      addPetView = _.bind(function(pet) {<br/>        var petView = new app.views.pet({<br/>          model: pet<br/>        })<br/>        this.$el.append(petView.render().el)<br/>      }, this);<br/><br/>      this.petHouse.on(&quot;add remove reset&quot;, function(pet) {<br/>        $(&quot;.pet-count&quot;).html(this.petHouse.size())<br/>      }, this); // When we add or remove pets, update the count<br/><br/>      this.petHouse.on(&quot;add&quot;, function(pet) {<br/>        addPetView(pet)<br/>      }, this); // When we add a pet, create the view<br/><br/>      this.petHouse.on(&quot;reset&quot;, function(pet) {<br/>        this.petHouse.each(function(pet) {<br/>          addPetView(pet)<br/>        })<br/>      }, this);<br/><br/>      $(&quot;.btn-adopt&quot;).click(_.bind(this.onAdoptPet, this)); // When the user presses the adopt button, adopt a pet<br/>      this.petHouse.fetch(); // Get the users pets from the database<br/>    },<br/><br/>    onAdoptPet: function(event) {<br/>      this.petHouse.create({<br/>        name: this.randomName(7, &quot;abcdefghijklmnopqrstuvwxyz&quot;) + this.randomName(3, &quot;0123456789&quot;),<br/>      });<br/>    }<br/><br/>  });<br/><br/>}).call(this);</code></pre>
+</section>
+
+
+<section class="slide">
+	<h2>Final Stretch</h2>
+	<h3>Include all our code, and start it!</h3>
+	<pre><code class="prettyprint">
+&lt;script src=&quot;models/pet.js&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;collections/pet.js&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;views/pet.js&quot;&gt;&lt;/script&gt;<br/>&lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;<br/><br/>&lt;script type=&quot;text/javascript&quot;&gt;<br/>  (function() {<br/>    var app = new window.app.views.app();<br/>    app.render()<br/>  }).call(this);<br/>&lt;/script&gt;</code></pre>
+</section>
+
+<section class="slide">
+	<h2>End</h2>
+	<ul>
+		<li><strong>GitHub Repo</strong> : <a href="http://github.com/nemothekid/petshop-backbone-matter-teach">http://github.com/nemothekid/petshop-backbone-matter-teach</a></li>
+		<li><strong>Example Application</strong> : <a href="http://nemothekid.github.com/petshop-backbone-matter-teach/app">http://nemothekid.github.com/petshop-backbone-matter-teach/app</a></li>
+		<li><strong>Slides</strong> : <a href="http://nemothekid.github.com/petshop-backbone-matter-teach/slides">http://nemothekid.github.com/petshop-backbone-matter-teach/slides</a></li>
+	</ul>
+</section>
+
+
+
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
